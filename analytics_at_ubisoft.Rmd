@@ -1,0 +1,40 @@
+---
+title: "Analytics at Ubisoft"
+author: "Christoph Safferling"  
+date: April 2, 2019
+output: 
+  revealjs::revealjs_presentation:
+    reveal_plugins: ["notes"]
+    self_contained: false
+    css: analytics_at_ubisoft_files/ubi.css
+    theme: sky
+    center: true
+---
+
+
+# Vocabulary {data-background="./data-culture_files/img/Freud.png"}
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Code and Output
+
+```{r}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
