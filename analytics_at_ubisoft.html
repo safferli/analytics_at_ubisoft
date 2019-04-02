@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Christoph Safferling" />
+  <meta name="dcterms.date" content="2019-04-02" />
+  <title>Analytics at Ubisoft</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="analytics_at_ubisoft_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="analytics_at_ubisoft_files/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="analytics_at_ubisoft_files\css\ubi.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Analytics at Ubisoft</h1>
+    <h2 class="author">Christoph Safferling</h2>
+    <h3 class="date">April 2, 2019</h3>
+</section>
+
+<section><section id="introduction" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/business-rabbid.png"><h1>Introduction</h1></section><section class="slide level2">
+
+<p><img src="analytics_at_ubisoft_files/img/BB_logo_blue_RGB_72dpi_2017.png" style="border:none; box-shadow: none; width: 75%; heigth: auto;" /></p>
+<ul>
+<li>founded in 1988, best known for the <em>Settlers</em> and <em>Anno</em> brand</li>
+<li>fully acquired by Ubisoft in 2001</li>
+<li>online games since 2010</li>
+<li>co-development on For Honor™, Rainbow Six® Siege, and Far Cry®</li>
+<li>next release: <a href="https://www.ubisoft.com/de-de/game/anno-1800/">Anno 1800™</a></li>
+</ul>
+<aside class="notes">
+Oh hey, these are some notes. They’ll be hidden in your presentation, but you can see them if you open the speaker notes window (hit ‘s’ on your keyboard).
+</aside>
+</section><section id="christoph-safferling" class="slide level2">
+<h2>Christoph Safferling</h2>
+<ul>
+<li>since 2012: Head of Game Analytics and User Research at Blue Byte</li>
+<li>PhD in economics: <a href="http://kops.uni-konstanz.de/handle/123456789/17259?locale-attribute=en">Three Essays on the Economics of Online Games</a></li>
+<li>contact:
+<ul>
+<li>mail: <a href="mailto:christoph.safferling@ubisoft.com" class="email">christoph.safferling@ubisoft.com</a></li>
+<li>LinkedIn: <a href="https://www.linkedin.com/in/safferling" class="uri">https://www.linkedin.com/in/safferling</a></li>
+<li>Github: <a href="https://github.com/safferli"><svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>safferli</a>; Twitter: <a href="https://twitter.com/safferli"><svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>safferli</a></li>
+<li>this talk: <a href="https://github.com/safferli/analytics_at_ubisoft" class="uri">https://github.com/safferli/analytics_at_ubisoft</a></li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>research specialties: personnel economics, incentive theory, industrial organisation</li>
+<li>academic papers available at <a href="https://ideas.repec.org/f/psa961.html">repec.org</a></li>
+</ul>
+</aside>
+</section></section>
+<section><section id="live-operation-games" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/chaos-rabbid.png"><h1>Live Operation Games</h1></section><section id="defitions" class="slide level2">
+<h2>Defitions</h2>
+<ul>
+<li>large online component</li>
+<li>continuous updating and balancing of the game</li>
+<li>need for data</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>not only f2p games: hybrid and all (future) AAA games</li>
+<li>f2p is a <em>business model</em>, not a game type</li>
+</ul>
+</aside>
+</section><section class="slide level2">
+
+<p><img data-src="./analytics_at_ubisoft_files/img/dontworry.jpg" /></p>
+</section><section id="free-to-play" class="slide level2">
+<h2>Free to Play</h2>
+<blockquote>
+<p>freemium: the ‘-mium’ is Latin for ‘not really’</p>
+</blockquote>
+<p>Southpark, <a href="http://southpark.cc.com/full-episodes/s18e06-freemium-isnt-free">Season 18, Episode 6</a></p>
+<p><img data-src="./analytics_at_ubisoft_files/img/southpark_f2p.gif" /></p>
+</section><section class="slide level2">
+
+<ul>
+<li>time vs money: opens game to a larger audience</li>
+<li>gives customers more impact on gameplay</li>
+<li><em>Extra Credits</em> on
+<ul>
+<li>Microtransactions <a href="https://www.youtube.com/watch?v=WXA559KNopI&amp;hd=1" class="uri">https://www.youtube.com/watch?v=WXA559KNopI&amp;hd=1</a></li>
+<li>Doing Free to Play Wrong <a href="https://www.youtube.com/watch?v=Mhz9OXy86a0&amp;hd=1" class="uri">https://www.youtube.com/watch?v=Mhz9OXy86a0&amp;hd=1</a></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="but-im-creative-i-dont-need-data" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/actionplan-rabbid.png"><h1>But… I’m creative! I don’t need data!</h1></section><section class="slide level2">
+
+<p><img data-src="./analytics_at_ubisoft_files/img/archer-slap.gif" /></p>
+<aside class="notes">
+<ul>
+<li>if you want to be an Indie developer, make your first games on someone else’s budget. You don’t want to make all those early mistakes on your own budget!</li>
+<li>being an indie doesn’t mean you can do what you want – investor wants something, banks want something, unless you have your own money and you’re willing to spend that</li>
+</ul>
+</aside>
+</section><section id="why-will-you-want-data" class="slide level2">
+<h2>Why will you want data?</h2>
+<ul>
+<li>market estimation/business case
+<ul>
+<li><em>“even if you are prepared to wait for two and a half years to see the money come in, 69% of indie games are going to lose money”</em> – <a href="http://positech.co.uk/cliffsblog/2016/01/06/random-but-fun-indie-game-data-sampling/">Cliff Harris</a>, Jan 2016</li>
+<li>no business case, no money</li>
+</ul></li>
+<li>game design
+<ul>
+<li>confirm your expectations/calculations</li>
+<li>what do your players actually like?</li>
+<li>progression is one of the key GD principles… it’s tricky and hard work!</li>
+</ul></li>
+</ul>
+<!-- you're studying here, which is the most expensive thing you will be doing (short of having kids, which will also study)... so you want this to pay off, right? -->
+</section><section id="if-you-can-only-track-few-data-points" class="slide level2">
+<h2>if you can only track few data points</h2>
+<ul>
+<li>sales data (obviously!)</li>
+<li>progress meter (e.g. playerlevel, mainquest completion)</li>
+<li>playtime (of different modes)</li>
+</ul>
+</section></section>
+<section><section id="data-scientists" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/Hipster.png"><h1>Data Scientists</h1></section><section class="slide level2">
+
+<blockquote>
+<p>[A data scientist is] a high-ranking professional with the training and curiosity to make discoveries in the world of big data.</p>
+</blockquote>
+<p>Data Scientist: the sexiest job of the 21st century, [Harvard Business Review, Oct 2012] (<a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century/" class="uri">https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century/</a>)</p>
+</section><section class="slide level2">
+
+<p><img src="analytics_at_ubisoft_files/img/barycentric-triangle.png" width="910" /></p>
+</section><section class="slide level2">
+
+<p><img src="analytics_at_ubisoft_files/img/data-scientist-triangle.png" width="998" /></p>
+</section><section id="skills-sought-after" class="slide level2">
+<h2>Skills sought after</h2>
+<ul>
+<li>domain knowledge and experience</li>
+<li><em>“mitdenken”</em>: think and act independently, and ahead</li>
+<li>statistics and mathematics</li>
+<li>Linux and scripting, mostly R and Python</li>
+<li>database (SQL and NoSQL, Hadoop) knowledge</li>
+<li>communication and presentation skills</li>
+</ul>
+<aside class="notes">
+you specifically do <em>not</em> need Excel!
+</aside>
+</section><section class="slide level2">
+
+<p><img data-src="./analytics_at_ubisoft_files/img/all-the-things.jpg" /></p>
+</section></section>
+<section><section id="analytics-at-ubisoft" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/Teacher.png"><h1>Analytics at Ubisoft</h1></section><section id="game-analytics" class="slide level2">
+<h2>Game Analytics</h2>
+<ul>
+<li>provide data, data support, and insights to all
+<ul>
+<li>managers</li>
+<li>game designers</li>
+<li>marketing</li>
+<li>CRM/support</li>
+<li>LiveOps team (including programmers)</li>
+</ul></li>
+<li>educate on data and data usage</li>
+</ul>
+</section><section id="fancy-shit" class="slide level2">
+<h2>fancy shit!</h2>
+<ul>
+<li>Shiny R: <a href="http://127.0.0.1:7471/">ACID mission dashboard</a></li>
+<li>Survival analysis: <a href="http://127.0.0.1:4076/">Anno 2205 event sessions</a></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Anno 2205 endgame Provides data on endgame (after completing main quest 29).</li>
+<li>Anno 2205 event sessions Provides data on event sessions in Anno 2205.</li>
+<li>Anno 2205 quests Provides data on quests in Anno 2205.</li>
+<li>Anno 2205 settings Provides data on game and language settings in Anno 2205.</li>
+<li>Anno 2205 online features Provides data on online feature usage in Anno 2205.</li>
+<li>Anno 2205 population and economy Provides data on populations and economies of corporations</li>
+</ul>
+</aside>
+</section><section id="upeq" class="slide level2">
+<h2>UPEQ</h2>
+<ul>
+<li><a href="https://www.massive.se/blog/consumer-experience/how-data-science-and-machine-learning-can-help-create-better-games/" class="uri">https://www.massive.se/blog/consumer-experience/how-data-science-and-machine-learning-can-help-create-better-games/</a></li>
+<li><a href="https://arxiv.org/abs/1902.00040" class="uri">https://arxiv.org/abs/1902.00040</a></li>
+</ul>
+<p>Modelling and predicting motivation from gameplay patterns</p>
+<ul>
+<li>UPEQ: Ubisoft Perceived Experience Questionnaire</li>
+<li><a href="https://dl.acm.org/citation.cfm?id=3235780" class="uri">https://dl.acm.org/citation.cfm?id=3235780</a></li>
+</ul>
+<p><img src="analytics_at_ubisoft_files/img/preference-learning-toolbox.png" width="1708" /></p>
+<aside class="notes">
+</aside>
+</section></section>
+<section><section id="machine-learning-at-ubisoft" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/Freud.png"><h1>Machine Learning at Ubisoft</h1></section><section id="la-forge" class="slide level2">
+<h2>La Forge</h2>
+<p><img data-src="./analytics_at_ubisoft_files/img/la-forge-wide.jpg" /></p>
+<ul>
+<li><a href="https://montreal.ubisoft.com/en/our-engagements/research-and-development/" class="uri">https://montreal.ubisoft.com/en/our-engagements/research-and-development/</a></li>
+<li>intro: <a href="https://www.youtube.com/watch?v=a5hlaMaisXQ" class="uri">https://www.youtube.com/watch?v=a5hlaMaisXQ</a></li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="smart-bots">Smart Bots</h3>
+<p><a href="https://www.youtube.com/watch?v=o7iEE48qrTI" class="uri">https://www.youtube.com/watch?v=o7iEE48qrTI</a></p>
+<p><a href="https://schedule.gdconf.com/session/ml-tutorial-day-smart-bots-for-better-games-reinforcement-learning-in-production/864367" class="uri">https://schedule.gdconf.com/session/ml-tutorial-day-smart-bots-for-better-games-reinforcement-learning-in-production/864367</a></p>
+</section><section class="slide level2">
+
+<h3 id="commit-assist">Commit Assist</h3>
+<p><a href="https://montreal.ubisoft.com/en/clever-combining-code-metrics-with-clone-detection-for-just-in-time-fault-prevention-and-resolution-in-large-industrial-projects-2/" class="uri">https://montreal.ubisoft.com/en/clever-combining-code-metrics-with-clone-detection-for-just-in-time-fault-prevention-and-resolution-in-large-industrial-projects-2/</a></p>
+<p><img src="analytics_at_ubisoft_files/img/firefox-commit-assist.PNG" width="1741" /></p>
+<p><a href="https://blog.mozilla.org/futurereleases/2019/02/12/making-the-building-of-firefox-faster-for-you-with-clever-commit-from-ubisoft/" class="uri">https://blog.mozilla.org/futurereleases/2019/02/12/making-the-building-of-firefox-faster-for-you-with-clever-commit-from-ubisoft/</a></p>
+</section><section class="slide level2">
+
+<h3 id="denoising-motion-capture">Denoising Motion Capture</h3>
+<p><img data-src="./analytics_at_ubisoft_files/img/animationcleanup_321004.gif" /></p>
+<p><a href="http://blog.ubi.com/en-GB/gdc-how-ubisoft-using-ai-make-games-real-world-better/" class="uri">http://blog.ubi.com/en-GB/gdc-how-ubisoft-using-ai-make-games-real-world-better/</a></p>
+<p><a href="http://montreal.ubisoft.com/wp-content/uploads/2018/05/neuraltracker.pdf" class="uri">http://montreal.ubisoft.com/wp-content/uploads/2018/05/neuraltracker.pdf</a></p>
+<p>ACM Reference Format:Daniel Holden. 2018. Robust Solving of Optical Motion Capture Data by Denoising. ACM Trans. Graph.38, 1, Article 165 (March 2018), 12 pages.https://doi.org/0000001.0000001_2</p>
+<p><a href="https://schedule.gdconf.com/session/a-new-era-of-performance-capture-with-machine-learning/860568" class="uri">https://schedule.gdconf.com/session/a-new-era-of-performance-capture-with-machine-learning/860568</a></p>
+</section><section class="slide level2">
+
+<h3 id="sound-matching">Sound Matching</h3>
+<p><a href="https://www.youtube.com/watch?v=YCmMPTRiX3E" class="uri">https://www.youtube.com/watch?v=YCmMPTRiX3E</a></p>
+<p><img data-src="./analytics_at_ubisoft_files/img/language_321005.gif" /></p>
+</section><section class="slide level2">
+
+<h3 id="ai-car-driving">AI car driving</h3>
+<p><img data-src="./analytics_at_ubisoft_files/img/ai_driver_321003.gif" /></p>
+</section><section id="deepsense" class="slide level2">
+<h2>Deepsense</h2>
+<h3 id="sprint-predictor">Sprint Predictor</h3>
+<h3 id="d-asset-labelling">3d Asset Labelling</h3>
+<p><a href="https://schedule.gdconf.com/session/tools-tutorial-day-3d-asset-recognition-with-deep-learning/865145" class="uri">https://schedule.gdconf.com/session/tools-tutorial-day-3d-asset-recognition-with-deep-learning/865145</a></p>
+<h3 id="multilabel-text-classification">Multilabel Text Classification</h3>
+</section><section id="sam-chatbot" class="slide level2">
+<h2>SAM chatbot</h2>
+<p><a href="https://venturebeat.com/2018/01/24/ubisoft-launches-sam-the-chat-bot-to-answer-your-game-questions/" class="uri">https://venturebeat.com/2018/01/24/ubisoft-launches-sam-the-chat-bot-to-answer-your-game-questions/</a></p>
+<p><a href="https://www.gamebyte.com/proof-of-watch-dogs-3-leaked-by-ubisofts-ai-app/" class="uri">https://www.gamebyte.com/proof-of-watch-dogs-3-leaked-by-ubisofts-ai-app/</a></p>
+<p><img src="analytics_at_ubisoft_files/img/sam-wd3-orig.PNG" width="1888" /></p>
+<p><a href="https://www.thenerdmag.com/watch-dogs-3-confirmed-by-ubisoft/" class="uri">https://www.thenerdmag.com/watch-dogs-3-confirmed-by-ubisoft/</a></p>
+</section></section>
+<section id="conclusion" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/Napoleon.png"><h1>Conclusion</h1></section>
+<section id="questions" class="title-slide slide level1" data-background="./analytics_at_ubisoft_files/img/Hanging_Rabbid.png"><h1>Questions?</h1></section>
+<section><section id="were-hiring" class="title-slide slide level1"><h1>We’re hiring!</h1></section><section class="slide level2">
+
+<p><a href="https://careers.smartrecruiters.com/Ubisoft2/" class="uri">https://careers.smartrecruiters.com/Ubisoft2/</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="analytics_at_ubisoft_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="analytics_at_ubisoft_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'analytics_at_ubisoft_files/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

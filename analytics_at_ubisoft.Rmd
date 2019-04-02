@@ -6,35 +6,307 @@ output:
   revealjs::revealjs_presentation:
     reveal_plugins: ["notes"]
     self_contained: false
-    css: analytics_at_ubisoft_files/ubi.css
+    css: analytics_at_ubisoft_files/css/ubi.css
     theme: sky
     center: true
+params:
+  imgdir: "./analytics_at_ubisoft_files/img/"
 ---
 
+```{r echo=FALSE}
+# github icon
+library(fontawesome)
 
-# Vocabulary {data-background="./data-culture_files/img/Freud.png"}
-
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Code and Output
-
-```{r}
-summary(cars)
+# place images function
+f.put.image <- function(image){
+  knitr::include_graphics(paste0(params$imgdir, image))
+}
 ```
 
-## Slide with Plot
+# Introduction {data-background="./analytics_at_ubisoft_files/img/business-rabbid.png"}
 
-```{r, echo=FALSE}
-plot(cars)
-```
+
+***
+
+<img src="./analytics_at_ubisoft_files/img/BB_logo_blue_RGB_72dpi_2017.png" style="border:none; box-shadow: none; width: 75%; heigth: auto;" />
+
+- founded in 1988, best known for the *Settlers* and *Anno* brand
+- fully acquired by Ubisoft in 2001
+- online games since 2010
+- co-development on For Honor™, Rainbow Six® Siege, and Far Cry®
+- next release: [Anno 1800™](https://www.ubisoft.com/de-de/game/anno-1800/)
+
+<aside class="notes">
+   Oh hey, these are some notes. They'll be hidden in your presentation, 
+   but you can see them if you open the speaker notes window 
+   (hit 's' on your keyboard).
+</aside>
+
+
+## Christoph Safferling
+
+- since 2012: Head of Game Analytics and User Research at Blue Byte
+- PhD in economics: [Three Essays on the Economics of Online Games](http://kops.uni-konstanz.de/handle/123456789/17259?locale-attribute=en)
+- contact:
+  - mail: christoph.safferling@ubisoft.com
+  - LinkedIn: https://www.linkedin.com/in/safferling 
+  - Github: [`r fa(name="github")`safferli](https://github.com/safferli); Twitter: [`r fa(name="twitter")`safferli](https://twitter.com/safferli) 
+  - this talk: https://github.com/safferli/analytics_at_ubisoft
+
+
+<aside class="notes">
+- research specialties: personnel economics, incentive theory, industrial organisation
+- academic papers available at [repec.org](https://ideas.repec.org/f/psa961.html)
+</aside>
+
+# Live Operation Games {data-background="./analytics_at_ubisoft_files/img/chaos-rabbid.png"}
+
+## Defitions
+
+- large online component
+- continuous updating and balancing of the game
+- need for data
+
+<aside class="notes">
+- not only f2p games: hybrid and all (future) AAA games
+- f2p is a *business model*, not a game type
+</aside>
+
+***
+
+`r f.put.image("dontworry.jpg")`
+
+
+## Free to Play 
+
+> freemium: the '-mium' is Latin for 'not really'
+
+Southpark, [Season 18, Episode 6](http://southpark.cc.com/full-episodes/s18e06-freemium-isnt-free)
+
+`r f.put.image("southpark_f2p.gif")`
+
+***
+
+- time vs money: opens game to a larger audience
+- gives customers more impact on gameplay
+- *Extra Credits* on 
+  - Microtransactions https://www.youtube.com/watch?v=WXA559KNopI&hd=1
+  - Doing Free to Play Wrong https://www.youtube.com/watch?v=Mhz9OXy86a0&hd=1
+
+
+# But... I'm creative! I don't need data! {data-background="./analytics_at_ubisoft_files/img/actionplan-rabbid.png"}
+
+***
+
+`r f.put.image("archer-slap.gif")`
+
+<aside class="notes">
+- if you want to be an Indie developer, make your first games on someone else's budget. You don't want to make all those early mistakes on your own budget!
+- being an indie doesn't mean you can do what you want -- investor wants something, banks want something, unless you have your own money and you're willing to spend that
+</aside>
+
+
+## Why will you want data? 
+
+- market estimation/business case
+  - *"even if you are prepared to wait for two and a half years to see the money come in, 69% of indie games are going to lose money"* -- [Cliff Harris](http://positech.co.uk/cliffsblog/2016/01/06/random-but-fun-indie-game-data-sampling/), Jan 2016
+  - no business case, no money
+- game design 
+  - confirm your expectations/calculations
+  - what do your players actually like?
+  - progression is one of the key GD principles... it's tricky and hard work! 
+
+<!-- you're studying here, which is the most expensive thing you will be doing (short of having kids, which will also study)... so you want this to pay off, right? -->
+
+
+## if you can only track few data points
+
+- sales data (obviously!)
+- progress meter (e.g. playerlevel, mainquest completion)
+- playtime (of different modes)
+
+
+
+# Data Scientists {data-background="./analytics_at_ubisoft_files/img/Hipster.png"}
+
+***
+
+> [A data scientist is] a high-ranking professional with the training and 
+> curiosity to make discoveries in the world of big data.
+
+Data Scientist: the sexiest job of the 21st century, 
+[Harvard Business Review, Oct 2012]
+(https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century/)
+
+***
+
+`r f.put.image("barycentric-triangle.png")`
+
+***
+
+`r f.put.image("data-scientist-triangle.png")`
+
+
+## Skills sought after
+
+- domain knowledge and experience
+- *"mitdenken"*: think and act independently, and ahead
+- statistics and mathematics
+- Linux and scripting, mostly R and Python
+- database (SQL and NoSQL, Hadoop) knowledge
+- communication and presentation skills
+
+<aside class="notes">
+  you specifically do *not* need Excel!
+</aside>
+
+***
+
+`r f.put.image("all-the-things.jpg")`
+
+
+
+# Analytics at Ubisoft {data-background="./analytics_at_ubisoft_files/img/Teacher.png"}
+
+## Game Analytics
+
+- provide data, data support, and insights to all
+  - managers
+  - game designers
+  - marketing
+  - CRM/support
+  - LiveOps team (including programmers)
+- educate on data and data usage
+
+## fancy shit!
+
+- Shiny R: [ACID mission dashboard](http://127.0.0.1:7471/)
+- Survival analysis: [Anno 2205 event sessions](http://127.0.0.1:4076/)
+
+<aside class="notes">
+- Anno 2205 endgame 	Provides data on endgame (after completing main quest 29).
+- Anno 2205 event sessions 	Provides data on event sessions in Anno 2205. 
+- Anno 2205 quests 	Provides data on quests in Anno 2205. 
+- Anno 2205 settings 	Provides data on game and language settings in Anno 2205. 
+- Anno 2205 online features 	Provides data on online feature usage in Anno 2205. 
+- Anno 2205 population and economy 	Provides data on populations and economies of corporations
+</aside>
+
+## UPEQ 
+
+- https://www.massive.se/blog/consumer-experience/how-data-science-and-machine-learning-can-help-create-better-games/
+- https://arxiv.org/abs/1902.00040
+
+Modelling and predicting motivation from gameplay patterns
+
+- UPEQ: Ubisoft Perceived Experience Questionnaire
+- https://dl.acm.org/citation.cfm?id=3235780
+
+`r f.put.image("preference-learning-toolbox.png")`
+
+<aside class="notes">
+
+</aside>
+
+
+# Machine Learning at Ubisoft {data-background="./analytics_at_ubisoft_files/img/Freud.png"}
+
+## La Forge
+
+`r f.put.image("la-forge-wide.jpg")`
+
+- https://montreal.ubisoft.com/en/our-engagements/research-and-development/
+- intro: https://www.youtube.com/watch?v=a5hlaMaisXQ
+
+***
+
+### Smart Bots
+
+https://www.youtube.com/watch?v=o7iEE48qrTI
+
+https://schedule.gdconf.com/session/ml-tutorial-day-smart-bots-for-better-games-reinforcement-learning-in-production/864367
+
+***
+
+### Commit Assist
+
+https://montreal.ubisoft.com/en/clever-combining-code-metrics-with-clone-detection-for-just-in-time-fault-prevention-and-resolution-in-large-industrial-projects-2/
+
+`r f.put.image("firefox-commit-assist.PNG")`
+
+https://blog.mozilla.org/futurereleases/2019/02/12/making-the-building-of-firefox-faster-for-you-with-clever-commit-from-ubisoft/
+
+***
+
+### Denoising Motion Capture 
+
+`r f.put.image("animationcleanup_321004.gif")`
+
+http://blog.ubi.com/en-GB/gdc-how-ubisoft-using-ai-make-games-real-world-better/
+
+http://montreal.ubisoft.com/wp-content/uploads/2018/05/neuraltracker.pdf
+
+ACM Reference Format:Daniel Holden. 2018. Robust Solving of Optical Motion Capture Data by Denoising. ACM Trans. Graph.38, 1, Article 165 (March 2018), 12 pages.https://doi.org/0000001.0000001_2 
+
+https://schedule.gdconf.com/session/a-new-era-of-performance-capture-with-machine-learning/860568
+
+***
+
+### Sound Matching 
+
+https://www.youtube.com/watch?v=YCmMPTRiX3E
+
+`r f.put.image("language_321005.gif")`
+
+***
+
+### AI car driving
+
+`r f.put.image("ai_driver_321003.gif")`
+
+***
+
+## Deepsense
+
+### Sprint Predictor
+
+### 3d Asset Labelling
+
+https://schedule.gdconf.com/session/tools-tutorial-day-3d-asset-recognition-with-deep-learning/865145
+
+### Multilabel Text Classification
+
+***
+
+## SAM chatbot
+
+https://venturebeat.com/2018/01/24/ubisoft-launches-sam-the-chat-bot-to-answer-your-game-questions/
+
+https://www.gamebyte.com/proof-of-watch-dogs-3-leaked-by-ubisofts-ai-app/
+
+`r f.put.image("sam-wd3-orig.PNG")`
+
+https://www.thenerdmag.com/watch-dogs-3-confirmed-by-ubisoft/
+
+
+
+# Conclusion {data-background="./analytics_at_ubisoft_files/img/Napoleon.png"}
+
+- modern games rely on data for game design (and monetisation)
+- game analytics provides these data (with interpretations)
+- cross-section of all game development departments
+
+
+
+# Questions? {data-background="./analytics_at_ubisoft_files/img/Hanging_Rabbid.png"}
+
+
+# We're hiring! 
+
+*** 
+
+https://careers.smartrecruiters.com/Ubisoft2/
+
+
+
 
