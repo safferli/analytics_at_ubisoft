@@ -61,7 +61,7 @@ f.put.image <- function(image){
 
 # Live Operation Games {data-background="./analytics_at_ubisoft_files/img/chaos-rabbid.png"}
 
-## Defitions
+## Definitions
 
 - large online component
 - continuous updating and balancing of the game
@@ -146,6 +146,22 @@ Data Scientist: the sexiest job of the 21st century,
 
 `r f.put.image("data-scientist-triangle.png")`
 
+## Any difference between them all?
+
+- **Data science** produces *insights*
+- **Machine learning** produces *predictions*
+- **Artificial intelligence** produces *actions*
+
+[David Robinson](http://varianceexplained.org/r/ds-ml-ai/)
+
+***
+
+> When you’re fundraising, it’s AI  
+> When you’re hiring, it’s ML  
+> When you’re implementing, it’s linear regression  
+> When you’re debugging, it’s printf()  
+> — Baron Schwartz (@xaprb) November 15, 2017
+
 
 ## Skills sought after
 
@@ -178,6 +194,19 @@ Data Scientist: the sexiest job of the 21st century,
   - LiveOps team (including programmers)
 - educate on data and data usage
 
+## UPEQ 
+
+`r f.put.image("preference-learning-toolbox.png")`
+
+- UPEQ: [Ubisoft Perceived Experience Questionnaire](https://dl.acm.org/citation.cfm?id=3235780)
+
+<aside class="notes">
+Modelling and predicting motivation from gameplay patterns
+
+- https://www.massive.se/blog/consumer-experience/how-data-science-and-machine-learning-can-help-create-better-games/
+- https://arxiv.org/abs/1902.00040
+</aside>
+
 ## fancy shit!
 
 - Shiny R: [ACID mission dashboard](http://127.0.0.1:7471/)
@@ -192,21 +221,6 @@ Data Scientist: the sexiest job of the 21st century,
 - Anno 2205 population and economy 	Provides data on populations and economies of corporations
 </aside>
 
-## UPEQ 
-
-- https://www.massive.se/blog/consumer-experience/how-data-science-and-machine-learning-can-help-create-better-games/
-- https://arxiv.org/abs/1902.00040
-
-Modelling and predicting motivation from gameplay patterns
-
-- UPEQ: Ubisoft Perceived Experience Questionnaire
-- https://dl.acm.org/citation.cfm?id=3235780
-
-`r f.put.image("preference-learning-toolbox.png")`
-
-<aside class="notes">
-
-</aside>
 
 
 # Machine Learning at Ubisoft {data-background="./analytics_at_ubisoft_files/img/Freud.png"}
@@ -222,19 +236,34 @@ Modelling and predicting motivation from gameplay patterns
 
 ### Smart Bots
 
-https://www.youtube.com/watch?v=o7iEE48qrTI
+<video width="640" height="360" loop=true autoplay=true>
+  <source src="analytics_at_ubisoft_files/img/for-honor-farm2.mp4" type="video/mp4">
+</video> 
 
-https://schedule.gdconf.com/session/ml-tutorial-day-smart-bots-for-better-games-reinforcement-learning-in-production/864367
+- https://www.youtube.com/watch?v=o7iEE48qrTI
+
+
+<aside class="notes">
+- delay AI to human reaction times
+- learning from pixels vs. learning from state vs. learning from simulation
+- https://schedule.gdconf.com/session/ml-tutorial-day-smart-bots-for-better-games-reinforcement-learning-in-production/864367
+</aside>
 
 ***
 
 ### Commit Assist
 
-https://montreal.ubisoft.com/en/clever-combining-code-metrics-with-clone-detection-for-just-in-time-fault-prevention-and-resolution-in-large-industrial-projects-2/
-
 `r f.put.image("firefox-commit-assist.PNG")`
 
-https://blog.mozilla.org/futurereleases/2019/02/12/making-the-building-of-firefox-faster-for-you-with-clever-commit-from-ubisoft/
+- [CLEVER commit](http://montreal.ubisoft.com/wp-content/uploads/2018/05/ICSE-CE-MSR-165.pdf)
+
+<aside class="notes">
+- CLEVER (Combining Levels of Bug Prevention and Resolution techniques), which relies on a two-phases process for intercepting risky commits before they reach the central repository.
+- CLEVER can detect risky commits with 79% precision and 65% recall
+- In addition, CLEVER is able to recommend qualitative fixes to developers on how to fix risky commits in 66.7% of the cases.
+- https://blog.mozilla.org/futurereleases/2019/02/12/making-the-building-of-firefox-faster-for-you-with-clever-commit-from-ubisoft/
+- https://montreal.ubisoft.com/en/clever-combining-code-metrics-with-clone-detection-for-just-in-time-fault-prevention-and-resolution-in-large-industrial-projects-2/
+</aside>
 
 ***
 
@@ -242,21 +271,25 @@ https://blog.mozilla.org/futurereleases/2019/02/12/making-the-building-of-firefo
 
 `r f.put.image("animationcleanup_321004.gif")`
 
-http://blog.ubi.com/en-GB/gdc-how-ubisoft-using-ai-make-games-real-world-better/
+- [Daniel Holden (2018)](http://montreal.ubisoft.com/wp-content/uploads/2018/05/neuraltracker.pdf)
 
-http://montreal.ubisoft.com/wp-content/uploads/2018/05/neuraltracker.pdf
 
-ACM Reference Format:Daniel Holden. 2018. Robust Solving of Optical Motion Capture Data by Denoising. ACM Trans. Graph.38, 1, Article 165 (March 2018), 12 pages.https://doi.org/0000001.0000001_2 
-
-https://schedule.gdconf.com/session/a-new-era-of-performance-capture-with-machine-learning/860568
+<aside class="notes">
+- https://schedule.gdconf.com/session/a-new-era-of-performance-capture-with-machine-learning/860568
+- http://blog.ubi.com/en-GB/gdc-how-ubisoft-using-ai-make-games-real-world-better/
+ACM Reference Format:Daniel Holden. 2018. Robust Solving of Optical Motion Capture Data by Denoising. ACM Trans. Graph.38, 1, Article 165 (March 2018), 12 pages. https://doi.org/0000001.0000001_2 
+</aside>
 
 ***
 
 ### Sound Matching 
 
-https://www.youtube.com/watch?v=YCmMPTRiX3E
-
 `r f.put.image("language_321005.gif")`
+
+<aside class="notes">
+- https://www.youtube.com/watch?v=YCmMPTRiX3E
+- real-time character animation
+</aside>
 
 ***
 
@@ -264,37 +297,54 @@ https://www.youtube.com/watch?v=YCmMPTRiX3E
 
 `r f.put.image("ai_driver_321003.gif")`
 
+<aside class="notes">
+- PID controller: costly to tune for different vehicles
+</aside>
+
 ***
 
 ## Deepsense
 
-### Sprint Predictor
-
 ### 3d Asset Labelling
 
-https://schedule.gdconf.com/session/tools-tutorial-day-3d-asset-recognition-with-deep-learning/865145
+`r f.put.image("game-assets.PNG")`
 
-### Multilabel Text Classification
+- [GDC talk by François Nadeau](https://schedule.gdconf.com/session/tools-tutorial-day-3d-asset-recognition-with-deep-learning/865145)
+
+<aside class="notes">
+- deepsense
+- sprint predictor
+- multilabel text classification
+</aside>
 
 ***
 
 ## SAM chatbot
 
-https://venturebeat.com/2018/01/24/ubisoft-launches-sam-the-chat-bot-to-answer-your-game-questions/
+`r f.put.image("sam-2.jpg")`
 
-https://www.gamebyte.com/proof-of-watch-dogs-3-leaked-by-ubisofts-ai-app/
+<aside class="notes">
+- https://venturebeat.com/2018/01/24/ubisoft-launches-sam-the-chat-bot-to-answer-your-game-questions/
+</aside>
+
+***
 
 `r f.put.image("sam-wd3-orig.PNG")`
 
-https://www.thenerdmag.com/watch-dogs-3-confirmed-by-ubisoft/
-
+<aside class="notes">
+- https://www.thenerdmag.com/watch-dogs-3-confirmed-by-ubisoft/
+- https://www.gamebyte.com/proof-of-watch-dogs-3-leaked-by-ubisofts-ai-app/
+</aside>
 
 
 # Conclusion {data-background="./analytics_at_ubisoft_files/img/Napoleon.png"}
 
-- modern games rely on data for game design (and monetisation)
-- game analytics provides these data (with interpretations)
-- cross-section of all game development departments
+***
+
+- modern games rely on data for game design 
+- modern ML/AI applications in development
+- check out [GDC talks](https://www.gdcvault.com/) for current development 
+- other developers: [OpenAI](https://openai.com/blog/openai-five/)
 
 
 
