@@ -34,7 +34,7 @@ f.put.image <- function(image){
 - fully acquired by Ubisoft in 2001
 - online games since 2010
 - co-development on For Honor™, Rainbow Six® Siege, and Far Cry®
-- next release: [The Settlers™](https://www.ubisoft.com/en-gb/game/the-settlers/)
+- next release: [The Settlers®](https://www.ubisoft.com/en-gb/game/the-settlers/)
 
 <aside class="notes">
    Oh hey, these are some notes. They'll be hidden in your presentation, 
@@ -344,7 +344,8 @@ ACM Reference Format:Daniel Holden. 2018. Robust Solving of Optical Motion Captu
 
 - modern games rely on data for game design 
 - modern ML/AI applications in development
-- in fact, data is changing the way _any_ work is done! 
+- in fact, data/"AI" is changing the way _any_ work is done
+    - _tasks_ are getting replaced, not _jobs_
 
 ***
 
