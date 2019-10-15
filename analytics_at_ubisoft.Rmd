@@ -1,7 +1,7 @@
 ---
 title: "Analytics at Ubisoft"
 author: "Christoph Safferling"  
-date: April 2, 2019
+date: October 15, 2019
 output: 
   revealjs::revealjs_presentation:
     reveal_plugins: ["notes"]
@@ -28,13 +28,13 @@ f.put.image <- function(image){
 
 ***
 
-<img src="./analytics_at_ubisoft_files/img/BB_logo_blue_RGB_72dpi_2017.png" style="border:none; box-shadow: none; width: 75%; heigth: auto;" />
+<img src="./analytics_at_ubisoft_files/img/Ubisoft_BB_Logo_black.png" style="border:none; box-shadow: none; width: 75%; heigth: auto;" />
 
 - founded in 1988, best known for the *Settlers* and *Anno* brand
 - fully acquired by Ubisoft in 2001
 - online games since 2010
 - co-development on For Honor™, Rainbow Six® Siege, and Far Cry®
-- next release: [Anno 1800™](https://www.ubisoft.com/de-de/game/anno-1800/)
+- next release: [The Settlers™](https://www.ubisoft.com/en-gb/game/the-settlers/)
 
 <aside class="notes">
    Oh hey, these are some notes. They'll be hidden in your presentation, 
@@ -45,7 +45,7 @@ f.put.image <- function(image){
 
 ## Christoph Safferling
 
-- since 2012: Head of Game Analytics and User Research at Blue Byte
+- Director of Data and Services at Ubisoft Blue Byte
 - PhD in economics: [Three Essays on the Economics of Online Games](http://kops.uni-konstanz.de/handle/123456789/17259?locale-attribute=en)
 - contact:
   - mail: christoph.safferling@ubisoft.com
@@ -135,8 +135,7 @@ Southpark, [Season 18, Episode 6](http://southpark.cc.com/full-episodes/s18e06-f
 > curiosity to make discoveries in the world of big data.
 
 Data Scientist: the sexiest job of the 21st century, 
-[Harvard Business Review, Oct 2012]
-(https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century/)
+[Harvard Business Review, Oct 2012](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century/)
 
 ***
 
@@ -269,7 +268,9 @@ Modelling and predicting motivation from gameplay patterns
 
 ### Denoising Motion Capture 
 
-`r f.put.image("animationcleanup_321004.gif")`
+<video width="640" height="360" loop=true autoplay=true>
+  <source src="analytics_at_ubisoft_files/img/animationcleanup.mp4" type="video/mp4">
+</video> 
 
 - [Daniel Holden (2018)](http://montreal.ubisoft.com/wp-content/uploads/2018/05/neuraltracker.pdf)
 
@@ -343,9 +344,12 @@ ACM Reference Format:Daniel Holden. 2018. Robust Solving of Optical Motion Captu
 
 - modern games rely on data for game design 
 - modern ML/AI applications in development
+- in fact, data is changing the way _any_ work is done! 
+
+***
+
 - check out [GDC talks](https://www.gdcvault.com/) for current development 
 - other developers: [OpenAI](https://openai.com/blog/openai-five/)
-
 
 
 # Questions? {data-background="./analytics_at_ubisoft_files/img/Hanging_Rabbid.png"}
